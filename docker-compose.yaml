@@ -14,7 +14,7 @@ services:
     image: my-node-app
     command: nodemon server.js
     volumes:
-      - .:/usr/src/app           # mount your project code
+      - .:/usr/src/app/nodemon          # mount your project code
       - /usr/src/app/node_modules  # prevent overwriting container’s node_modules
     ports:
       - "13000:13000"
