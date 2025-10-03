@@ -1,0 +1,16 @@
+###
+GET http://localhost:13000
+
+###
+###
+GET http://localhost:13000/setup
+
+###
+
+POST http://localhost:13000
+Content-Type: application/json
+
+{
+    "name":"Olufemi", 
+    "location":"19 Oloja street, Bariga"
+}

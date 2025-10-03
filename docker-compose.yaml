@@ -1,0 +1,23 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password123
+      POSTGRES_USER: user123
+      POSTGRES_DB: db123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    image: my-node-app
+    command: nodemon server.js
+    volumes:
+      - .:/usr/src/app           # mount your project code
+      - /usr/src/app/node_modules  # prevent overwriting container’s node_modules
+    ports:
+      - "13000:13000"
+
+volumes:
+  pgdata:
