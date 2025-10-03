@@ -24,8 +24,8 @@ app.post("/", async (req, res) => {
 
 app.get("/", async (req, res) => {
   try {
-    const data = await pool.query("SELECT * FROM schools");
-    res.status(200).send(data.row);
+    const data = await pool.query(`SELECT * FROM schools`);
+    res.status(200).json(data.rows);
   } catch (error) {
     console.error("error fetching data", error);
     res.status(500).send("Error: " + error.message);
